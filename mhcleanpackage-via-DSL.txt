@@ -1,0 +1,16 @@
+job('mhcleanpackage-via-DSL') {
+    description("create wall file $ {new Date()}, new dsl project")
+    scm {
+        git("https://github.com/upinfo/DevOpsClassCodes.git", master)
+    }
+    triggers {
+        scm('* * * * *')
+    }
+    steps {
+        maven('clean package')
+    }
+    publishers {
+        //archive the war file generated
+        archiveArtifacts '**/*.war
+    }
+}
