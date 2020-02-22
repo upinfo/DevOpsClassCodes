@@ -10,7 +10,7 @@ job('mhcleanpackage-via-DSL') {
         maven('clean package')
     }
     publishers {
-        //archive the war file generated
+        //archive the war file generated now
         archiveArtifacts '**/*.war
     }
 }
